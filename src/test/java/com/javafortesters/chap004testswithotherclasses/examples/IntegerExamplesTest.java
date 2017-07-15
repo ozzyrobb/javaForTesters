@@ -57,4 +57,30 @@ public class IntegerExamplesTest {
         assertEquals("compare returns 1", 1, Integer.compare(6, 5));
         assertEquals("compare returns -1", -1, Integer.compare(5, 6));
     }
+
+    /*
+    The above provides examples of instantiating a class, using static methods, and also demonstrates how you can use tests to explore new libraries.
+     You should however use caution when instantiating classes in your code, because while an int equals an int, an Integer does not always equal an Integer.
+
+    For example:
+
+     assertEquals(4,4);
+     assertTrue(4==4);
+
+     Both of the above would pass, but if I did the following:
+
+     Integer firstFour = new Integer(4);
+     Integer secondFour = new Integer(4);
+
+     assertEquals(firstFour, secondFour);
+     assertEquals(firstFour==secondFour);
+
+     Then the second test would fail.
+
+     This is because primitives are simple, and there's no difference between value and identity. Every 4 in the code refers to the same 4.
+     Objects are different. We instantiate them, so firstFour and secondFour refer to different objects, even though they have the same 'value'.
+
+     With assertEquals, JUnit uses the equals method to compare the value. When using the '==' operator, Java is checking if the two object variables
+     refer to the same instantiation.
+     */
 }
