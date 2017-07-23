@@ -1,0 +1,10 @@
+/target/
+/.classpath
+/.project
+/bin/
+.settings/**
+/debug.log
+.metadata/**
+RemoteSystemsTempFiles/
+.idea/**
+*.iml
