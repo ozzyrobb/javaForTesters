@@ -1,4 +1,4 @@
-package com.javafortesters.chap007selectionsanddecisions.examples;
+package com.javafortesters.chap008selectionsanddecisions.examples;
 
 import org.junit.Test;
 
