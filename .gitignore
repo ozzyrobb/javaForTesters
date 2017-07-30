@@ -8,3 +8,5 @@
 RemoteSystemsTempFiles/
 .idea/**
 *.iml
+*.xml
+.idea/*.xml
