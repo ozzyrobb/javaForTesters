@@ -3,6 +3,8 @@ package com.javafortesters.chap009arraysandforloopiteration.examples;
 import com.javafortesters.domainentities.User;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -57,6 +59,65 @@ public class ArraysAndForLoopsTest {
         assertEquals("user[0] is password1","password1", lotsOfUsers[0].getPassword());
         assertEquals("user[99] is user100","user100", lotsOfUsers[99].getUsername());
         assertEquals("user[99] is password100","password100", lotsOfUsers[99].getPassword());
+    }
+
+    @Test
+    public void answerCreateAnArrayOf100Users() {
+        User[] users = new User[100];
+
+        for (int userIndex = 0; userIndex < 100; userIndex++) {
+            int userId = userIndex + 1;
+            users[userIndex] = new User("user" + userId, "password" + userId);
+        }
+
+        // check creation
+        for (User aUser : users) {
+            System.out.println(aUser.getUsername() + ", " + aUser.getPassword());
+        }
+
+        //bonus points assert creation
+        int userId = 1;
+        for (User aUser : users) {
+            assertEquals("user" + userId, aUser.getUsername());
+            assertEquals("password" + userId, aUser.getPassword());
+            userId++;
+        }
+        //check the last one output was 100, i.e. next would be 101
+        assertEquals(101, userId);
+    }
+
+    @Test
+    public void workdaysExample() {
+        String[] workdays = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
+
+        Arrays.sort(workdays);
+
+        for (String workday : workdays) {
+            System.out.println(workday);
+        }
+
+        assertEquals("Friday", workdays[0]);
+        assertEquals("Monday", workdays[1]);
+        assertEquals("Thursday", workdays[2]);
+        assertEquals("Tuesday", workdays[3]);
+        assertEquals("Wednesday", workdays[4]);
+    }
+
+    @Test
+    public void workdaysMixedCaseExample() {
+        String[] workdaysMixedCase = {"monday", "Tuesday", "Wednesday", "thursday", "Friday"};
+
+        Arrays.sort(workdaysMixedCase);
+
+        for (String workdayMixed : workdaysMixedCase) {
+            System.out.println(workdayMixed);
+        }
+
+        assertEquals("Friday", workdaysMixedCase[0]);
+        assertEquals("Tuesday", workdaysMixedCase[1]);
+        assertEquals("Wednesday", workdaysMixedCase[2]);
+        assertEquals("monday", workdaysMixedCase[3]);
+        assertEquals("thursday", workdaysMixedCase[4]);
     }
 
 }
