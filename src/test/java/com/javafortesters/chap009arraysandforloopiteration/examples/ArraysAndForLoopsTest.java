@@ -135,4 +135,17 @@ public class ArraysAndForLoopsTest {
         }
     }
 
+    @Test
+    public void createTriangle2dArray() {
+        int [][] triangle = new int[16][];
+        for(int row = 0; row < triangle.length; row++) {
+            triangle[row] = new int[row+1];
+            for (int i = 0; i < (row+1); i++) {
+                triangle[row][i] = i;
+            }
+        }
+
+        print2DIntArray(triangle);
+        }
+
 }
