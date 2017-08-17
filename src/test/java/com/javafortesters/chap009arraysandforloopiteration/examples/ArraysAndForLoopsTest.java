@@ -3,6 +3,7 @@ package com.javafortesters.chap009arraysandforloopiteration.examples;
 import com.javafortesters.domainentities.User;
 import org.junit.Test;
 
+import java.net.URLEncoder;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
@@ -118,6 +119,20 @@ public class ArraysAndForLoopsTest {
         assertEquals("Wednesday", workdaysMixedCase[2]);
         assertEquals("monday", workdaysMixedCase[3]);
         assertEquals("thursday", workdaysMixedCase[4]);
+    }
+
+
+    public void print2DIntArray(int [][]multi) {
+        for (int[] outer : multi) {
+            if (outer == null) {
+                System.out.print("null");
+            } else {
+                for (int inner : outer) {
+                    System.out.print(inner + ",");
+                }
+            }
+            System.out.println("");
+        }
     }
 
 }
