@@ -21,4 +21,19 @@ public class moreArrayExercises {
         assertEquals("array[5] = 5", 5, array[5]);
         assertEquals("array[9] = 9", 9, array[9]);
     }
+
+    @Test
+    public void fillArrayWithForEachLoop() {
+        int[] array = new int[10];
+
+        int index = 0;
+        for (int item : array) {
+            array[index] = index;
+            index++;
+        }
+
+        assertEquals("array[0] = 0", 0, array[0]);
+        assertEquals("array[5] = 5", 5, array[5]);
+        assertEquals("array[9] = 9", 9, array[9]);
+    }
 }
