@@ -2,6 +2,8 @@ package com.javafortesters.chap009arraysandforloopiteration.examples;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -35,5 +37,27 @@ public class moreArrayExercises {
         assertEquals("array[0] = 0", 0, array[0]);
         assertEquals("array[5] = 5", 5, array[5]);
         assertEquals("array[9] = 9", 9, array[9]);
+    }
+
+    @Test
+    public void fillArrayWithMethod() {
+        int[] array = new int[10];
+
+        Arrays.fill(array, 10);
+
+        assertEquals("array[0] = 10", 10, array[0]);
+        assertEquals("array[5] = 10", 10, array[5]);
+        assertEquals("array[9] = 10", 10, array[9]);
+    }
+
+    @Test
+    public void fillArrayRangeWithMethod() {
+        int[] array = new int[10];
+
+        Arrays.fill(array, 2, 7, 10);
+
+        assertEquals("array[0] = 0", 0, array[0]);
+        assertEquals("array[5] = 10", 10, array[5]);
+        assertEquals("array[9] = 0", 0, array[9]);
     }
 }
