@@ -78,4 +78,15 @@ public class moreArrayExercises {
         assertEquals("array[2] = three", "three", stringArray[2]);
         assertEquals("array[4] = zero", "zero", stringArray[4]);
     }
+
+    @Test
+    public void sumArrayValues() {
+        int[] array = {2,4,3,0,1};
+        int arraySum = 0;
+        for (int index : array) {
+            arraySum+= index;
+        }
+
+        assertEquals("arraySum = 10", 10, arraySum);
+    }
 }
