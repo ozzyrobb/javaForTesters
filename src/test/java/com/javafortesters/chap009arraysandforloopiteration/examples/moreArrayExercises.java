@@ -60,4 +60,22 @@ public class moreArrayExercises {
         assertEquals("array[5] = 10", 10, array[5]);
         assertEquals("array[9] = 0", 0, array[9]);
     }
+
+    @Test
+    public void sortingArrays() {
+        int[] intArray = {2,4,3,0,1};
+        Arrays.sort(intArray);
+
+        String[] stringArray = {"three", "two", "zero", "four", "one"};
+        Arrays.sort(stringArray);
+
+        assertEquals("array[0] = 0", 0, intArray[0]);
+        assertEquals("array[2] = 2", 2, intArray[2]);
+        assertEquals("array[9] = 4", 4, intArray[4]);
+
+
+        assertEquals("array[0] = four", "four", stringArray[0]);
+        assertEquals("array[2] = three", "three", stringArray[2]);
+        assertEquals("array[4] = zero", "zero", stringArray[4]);
+    }
 }
