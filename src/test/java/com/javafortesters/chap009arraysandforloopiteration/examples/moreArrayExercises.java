@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class moreArrayExercises {
 
     @Test
-    public void sortNumericArray() {
+    public void fillArrayWithForLoop() {
         int[] array = new int[10];
 
         for (int i = 0; i < 10; i++) {
