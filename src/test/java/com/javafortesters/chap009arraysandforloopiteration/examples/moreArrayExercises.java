@@ -100,4 +100,18 @@ public class moreArrayExercises {
             System.out.println("");
         }
     }
+
+    @Test
+    public void calculateAverage() {
+        int[] array = {2,4,3,0,1};
+        int sum = 0;
+        double average;
+
+        for (int index : array) {
+            sum+= index;
+        }
+        average = (sum / array.length);
+
+        assertEquals("Average = 2",2, average, 0);
+    }
 }
