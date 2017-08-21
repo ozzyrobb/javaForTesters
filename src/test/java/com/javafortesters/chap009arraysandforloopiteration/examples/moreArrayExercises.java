@@ -89,4 +89,15 @@ public class moreArrayExercises {
 
         assertEquals("arraySum = 10", 10, arraySum);
     }
+
+    @Test
+    public void printGrid() {
+        String[][] grid = new String[10][10];
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 10; col++)  {
+                System.out.print("- ");
+            }
+            System.out.println("");
+        }
+    }
 }
