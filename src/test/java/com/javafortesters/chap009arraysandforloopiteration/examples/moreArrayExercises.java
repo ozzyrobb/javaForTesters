@@ -144,4 +144,22 @@ public class moreArrayExercises {
 
         assertTrue("array contains value", containsValue(myArray, 5));
     }
+
+    private static int findIndex(int[] arrayToCheck, int valueToFind) {
+        if (arrayToCheck == null) {
+            return -1;
+        }
+        for (int i = 0; i < arrayToCheck.length; i++) {
+            if (arrayToCheck[i] == valueToFind) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Test
+    public void valueAtIndex() {
+        int[] myArray = {0,5,4,7,8,9,2,3};
+        assertEquals("value is at index 3", 3, findIndex(myArray, 7));
+    }
 }
