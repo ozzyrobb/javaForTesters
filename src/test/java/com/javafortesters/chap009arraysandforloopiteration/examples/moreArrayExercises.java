@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by robb on 19/08/2017.
@@ -113,5 +114,34 @@ public class moreArrayExercises {
         average = (sum / array.length);
 
         assertEquals("Average = 2",2, average, 0);
+    }
+
+    @Test
+    public void arrayContainsValue() {
+        int[] array = {2,4,3,0,1};
+        int value = 4;
+        boolean valuePresent = false;
+        for (int index : array) {
+            if (index == value) {
+                valuePresent = true;
+            }
+        }
+        assertTrue("array contains value", valuePresent);
+    }
+
+    private static boolean containsValue(int[] array, int value) {
+        for (int index : array) {
+            if (index == value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Test
+    public void arrayValueTest() {
+        int[] myArray = {1,2,3,4,5};
+
+        assertTrue("array contains value", containsValue(myArray, 5));
     }
 }
