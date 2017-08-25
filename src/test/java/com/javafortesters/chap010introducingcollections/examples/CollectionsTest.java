@@ -96,5 +96,18 @@ public class CollectionsTest {
         } while (!days.get(doCount).equals("Monday"));
         assertEquals("Monday is at position 3", 3, doCount);
     }
+
+    @Test
+    public void daysExercise() {
+        String[] weekdays = {"Tuesday", "Thursday", "Wednesday", "Monday", "Saturday", "Sunday", "Friday"};
+
+        List<String> days = Arrays.asList(weekdays);
+
+        int i = 0;
+        for (;!days.get(i).equals("Monday");) {
+            i++;
+        }
+        assertEquals("Monday is at position 3", 3, i);
+    }
 }
 
