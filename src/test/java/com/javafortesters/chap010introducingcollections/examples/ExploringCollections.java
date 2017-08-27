@@ -3,10 +3,11 @@ package com.javafortesters.chap010introducingcollections.examples;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by robb on 26/08/2017.
@@ -15,20 +16,27 @@ public class ExploringCollections {
 
     @Test
     public void addToCollection() {
-        List<String> days = new ArrayList<>();
+        List<String> workdays = new ArrayList<>();
+        List<String> daysOfWeek = new ArrayList<>();
+        List<String> weekendDays = new ArrayList<>();
 
-        days.add("Monday");
-        days.add("Tuesday");
-        days.add("Wednesday");
-        days.add("Thursday");
-        days.add("Friday");
-        days.add("Saturday");
-        days.add("Sunday");
+        workdays.add("Monday");
+        workdays.add("Tuesday");
+        workdays.add("Wednesday");
+        workdays.add("Thursday");
+        workdays.add("Friday");
 
-        days.remove(0);
-        days.add(0, "Monday");
+        weekendDays.add("Saturday");
+        weekendDays.add("Funday");
+        weekendDays.remove("Funday");
+        weekendDays.add("Sunday");
 
-        assertEquals("Tuesday", days.get(1));
+        daysOfWeek.addAll(workdays);
 
+        assertEquals("workdays contains 5 elements",5, workdays.size());
+        assertTrue("daysOfWeek contains 5 elements", daysOfWeek.containsAll(workdays));
+        assertFalse("weekendDays does not contain Funday",weekendDays.contains("Funday"));
+        assertEquals("weekendDays contains 2 elements", 2, weekendDays.size());
+        assertTrue("Bug fixed, Sunday is in the collection now", weekendDays.contains("Sunday"));
     }
 }
