@@ -1,8 +1,10 @@
 package com.javafortesters.chap010introducingcollections.examples;
 
+import com.javafortesters.domainentities.User;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -157,5 +159,43 @@ public class ExploringCollections {
         daysOfWeek.toArray(anotherArray);
 
         assertEquals("Monday".length(), anotherArray[0].length());
+    }
+
+    @Test
+    public void collectionOfUserExercise() {
+        Collection users;
+        users = new ArrayList();
+
+        assertEquals("users has 0 elements", 0, users.size());
+        assertTrue(users.isEmpty());
+
+        User user1 = new User();
+        User user2 = new User();
+
+        users.add(user1);
+        users.add(user2);
+
+        assertEquals("users has 2 elements", 2, users.size());
+        assertFalse(users.isEmpty());
+
+        Collection newUsers;
+        newUsers = new ArrayList();
+
+        User user3 = new User();
+        User user4 = new User();
+
+        newUsers.add(user3);
+        newUsers.add(user4);
+
+        users.addAll(newUsers);
+
+        assertTrue(users.contains(user3));
+        assertTrue(users.contains(user4));
+
+        newUsers.removeAll(users);
+        assertEquals(0, newUsers.size());
+
+        users.clear();
+        assertEquals(0, users.size());
     }
 }
