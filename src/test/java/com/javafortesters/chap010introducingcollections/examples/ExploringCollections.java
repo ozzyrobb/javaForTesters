@@ -132,4 +132,30 @@ public class ExploringCollections {
 
         assertEquals("Monday".length(),((String)daysOfWeekArray[0]).length());
     }
+
+    @Test
+    public void toArrayWithArgument(){
+        List<String> workdays = new ArrayList<>();
+        List<String> daysOfWeek = new ArrayList<>();
+        List<String> weekendDays = new ArrayList<>();
+
+        workdays.add("Monday");
+        workdays.add("Tuesday");
+        workdays.add("Wednesday");
+        workdays.add("Thursday");
+        workdays.add("Friday");
+
+        weekendDays.add("Saturday");
+        weekendDays.add("Sunday");
+
+        daysOfWeek.addAll(workdays);
+        daysOfWeek.addAll(weekendDays);
+
+        // The toArray(anArray) call, where we pass as argument an initialized array, avoids the above problems:
+
+        String[] anotherArray = new String[daysOfWeek.size()];
+        daysOfWeek.toArray(anotherArray);
+
+        assertEquals("Monday".length(), anotherArray[0].length());
+    }
 }
