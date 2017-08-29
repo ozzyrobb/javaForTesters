@@ -76,4 +76,60 @@ public class ExploringCollections {
         assertEquals("daysOfWeek contains 5 elements", 5, daysOfWeek.size());
         assertFalse(daysOfWeek.containsAll(weekendDays));
     }
+
+    @Test
+    public void retainAll() {
+        List<String> workdays = new ArrayList<>();
+        List<String> daysOfWeek = new ArrayList<>();
+        List<String> weekendDays = new ArrayList<>();
+
+        workdays.add("Monday");
+        workdays.add("Tuesday");
+        workdays.add("Wednesday");
+        workdays.add("Thursday");
+        workdays.add("Friday");
+
+        weekendDays.add("Saturday");
+        weekendDays.add("Sunday");
+
+        daysOfWeek.addAll(workdays);
+        daysOfWeek.addAll(weekendDays);
+
+        assertTrue(daysOfWeek.containsAll(workdays));
+        assertTrue(daysOfWeek.containsAll(weekendDays));
+
+        daysOfWeek.retainAll(weekendDays);
+
+        assertEquals("daysOfWeek only contains weekendDays now", 2, daysOfWeek.size());
+        assertTrue(daysOfWeek.containsAll(weekendDays));
+        assertFalse(daysOfWeek.containsAll(workdays));
+    }
+
+    @Test
+    public void toArrayNoArgument() {
+        List<String> workdays = new ArrayList<>();
+        List<String> daysOfWeek = new ArrayList<>();
+        List<String> weekendDays = new ArrayList<>();
+
+        workdays.add("Monday");
+        workdays.add("Tuesday");
+        workdays.add("Wednesday");
+        workdays.add("Thursday");
+        workdays.add("Friday");
+
+        weekendDays.add("Saturday");
+        weekendDays.add("Sunday");
+
+        daysOfWeek.addAll(workdays);
+        daysOfWeek.addAll(weekendDays);
+
+        // When we call toArray without an argument, it will retun an array of Object.
+
+        Object[] daysOfWeekArray = daysOfWeek.toArray();
+        assertEquals("daysOfWeekArray contains 7 elements", 7, daysOfWeekArray.length);
+
+        // If we subsequently wanted to use elements from the array we would have to cast them as String. i.e. (String)
+
+        assertEquals("Monday".length(),((String)daysOfWeekArray[0]).length());
+    }
 }
