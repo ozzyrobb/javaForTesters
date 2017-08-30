@@ -159,4 +159,50 @@ public class ExploringCollections {
 
         assertEquals("Monday".length(), anotherArray[0].length());
     }
+
+    @Test
+    public void getAnElementAtAnIndex() {
+        List<String> days = new ArrayList<>();
+
+        days.add("Monday");
+        days.add("Tuesday");
+        days.add("Wednesday");
+
+        assertEquals("Monday", days.get(0));
+        assertEquals("Tuesday", days.get(1));
+        assertEquals("Wednesday", days.get(2));
+    }
+
+    @Test
+    public void removeAnElementAtAnIndex() {
+        List<String> days = new ArrayList<>();
+
+        days.add("Monday");
+        days.add("Tuesday");
+        days.add("Wednesday");
+
+        days.remove(1);
+
+        assertEquals(2, days.size());
+        assertEquals("Monday", days.get(0));
+        assertEquals("Wednesday", days.get(1));
+    }
+
+    @Test
+    public void addAnElementAtAnIndex() {
+        List<String> days = new ArrayList<>();
+
+        days.add("Tuesday");
+        days.add("Thursday");
+        days.add("Saturday");
+
+        days.add(0, "Monday");
+        days.add(2, "Wednesday");
+        days.add(4, "Friday");
+        days.add(6, "Sunday");
+
+        assertEquals("Tuesday", days.get(1));
+        assertEquals("Thursday", days.get(3));
+        assertEquals("Saturday", days.get(5));
+    }
 }
