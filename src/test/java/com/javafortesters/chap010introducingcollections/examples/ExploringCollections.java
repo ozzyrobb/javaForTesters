@@ -163,37 +163,45 @@ public class ExploringCollections {
 
     @Test
     public void collectionOfUserExercise() {
-        Collection users;
-        users = new ArrayList();
+        Collection<User> users = new ArrayList<>();
 
         assertEquals("users has 0 elements", 0, users.size());
         assertTrue(users.isEmpty());
 
-        User user1 = new User();
-        User user2 = new User();
+        User bill = new User();
+        User ben = new User();
 
-        users.add(user1);
-        users.add(user2);
+        users.add(bill);
+        users.add(ben);
 
         assertEquals("users has 2 elements", 2, users.size());
         assertFalse(users.isEmpty());
 
-        Collection newUsers;
-        newUsers = new ArrayList();
+        Collection<User> newUsers = new ArrayList<>();
 
-        User user3 = new User();
-        User user4 = new User();
+        User james = new User();
+        User lars = new User();
 
-        newUsers.add(user3);
-        newUsers.add(user4);
+        newUsers.add(james);
+        newUsers.add(lars);
 
         users.addAll(newUsers);
 
-        assertTrue(users.contains(user3));
-        assertTrue(users.contains(user4));
+        assertTrue(users.contains(james));
+        assertTrue(users.contains(lars));
+
+        System.out.println("newUsers contains: ");
+        for (Object user : newUsers) {
+            System.out.println();
+        }
 
         newUsers.removeAll(users);
         assertEquals(0, newUsers.size());
+
+        System.out.println("Now newUsers contains: ");
+        for (Object user : newUsers) {
+            System.out.println(user);
+        }
 
         users.clear();
         assertEquals(0, users.size());
