@@ -260,4 +260,26 @@ public class ExploringCollections {
         assertEquals("Tuesday", days.get(1));
         assertEquals("Wednesday", days.get(2));
     }
+
+    @Test
+    public void subListToCreatePortionOfAList() {
+        List<String> days = new ArrayList<>();
+
+        days.add("Monday");
+        days.add("Tuesday");
+        days.add("Wednesday");
+        days.add("Thursday");
+        days.add("Friday");
+        days.add("Saturday");
+        days.add("Sunday");
+
+        List<String> weekdays = days.subList(0,5);
+
+        assertEquals(5, weekdays.size());
+        assertEquals("Monday", weekdays.get(0));
+        assertEquals("Tuesday", weekdays.get(1));
+        assertEquals("Wednesday", weekdays.get(2));
+        assertEquals("Thursday", weekdays.get(3));
+        assertEquals("Friday", weekdays.get(4));
+    }
 }
