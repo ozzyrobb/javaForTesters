@@ -159,5 +159,26 @@ public class CollectionsTest {
         users.clear();
         assertEquals(0, users.size());
     }
+
+    @Test
+    public void listOfUsersExercise() {
+        List<User> users = new ArrayList<>();
+
+        User robert = new User("Robert", "Pl4nt");
+        User jimmy = new User("Jimmy", "P4g3");
+
+        users.add(jimmy);
+        assertEquals(1, users.size());
+
+        users.add(0, robert);
+        assertEquals(2, users.size());
+
+        assertEquals(0, users.indexOf(robert));
+        assertEquals(1, users.indexOf(jimmy));
+
+        users.remove(0);
+        assertEquals(1, users.size());
+        assertEquals(jimmy, users.get(0));
+    }
 }
 
