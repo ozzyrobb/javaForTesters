@@ -242,4 +242,22 @@ public class ExploringCollections {
         assertEquals(1, days.indexOf("Thursday"));
         assertEquals(3, days.lastIndexOf("Thursday"));
     }
+
+    @Test
+    public void setElementAtAnIndex() {
+        List<String> days = new ArrayList<>();
+
+        days.add("Monday");
+        days.add("Thursday");
+        days.add("Wednesday");
+
+        days.set(1, "Tuesday");
+
+        assertEquals("Tuesday", days.get(1));
+
+        assertEquals(3, days.size());
+        assertEquals("Monday", days.get(0));
+        assertEquals("Tuesday", days.get(1));
+        assertEquals("Wednesday", days.get(2));
+    }
 }
