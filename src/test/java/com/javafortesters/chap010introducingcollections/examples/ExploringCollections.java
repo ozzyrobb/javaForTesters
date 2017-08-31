@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+import java.util.Collection;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -204,5 +205,41 @@ public class ExploringCollections {
         assertEquals("Tuesday", days.get(1));
         assertEquals("Thursday", days.get(3));
         assertEquals("Saturday", days.get(5));
+    }
+
+    @Test
+    public void addAllElementsAtAnIndex() {
+        List<String> days = new ArrayList<>();
+        List<String> missingDays = new ArrayList<>();
+
+        days.add("Monday");
+        days.add("Friday");
+
+        missingDays.add("Tuesday");
+        missingDays.add("Wednesday");
+        missingDays.add("Thursday");
+
+        days.addAll(1, missingDays);
+
+        assertEquals(5, days.size());
+        assertEquals("Monday", days.get(0));
+        assertEquals("Tuesday", days.get(1));
+        assertEquals("Wednesday", days.get(2));
+        assertEquals("Thursday", days.get(3));
+        assertEquals("Friday", days.get(4));
+    }
+
+    @Test
+    public void indexOfElement() {
+        List<String> days = new ArrayList<>();
+
+        days.add("Tuesday");
+        days.add("Thursday");
+        days.add("Saturday");
+        days.add("Thursday");
+
+        assertEquals(2, days.indexOf("Saturday"));
+        assertEquals(1, days.indexOf("Thursday"));
+        assertEquals(3, days.lastIndexOf("Thursday"));
     }
 }
