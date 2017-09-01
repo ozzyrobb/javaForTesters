@@ -4,9 +4,7 @@ import org.junit.Test;
 
 import java.util.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by robb on 26/08/2017.
@@ -302,5 +300,24 @@ public class ExploringCollections {
         map.put("key3", "value3");
 
         assertEquals(3, map.size());
+
+        map.put("key1", "newValue1");
+        assertEquals("newValue1", map.get("key1"));
+    }
+
+    @Test
+    public void useGetToRetrieveAValue() {
+        Map<String,String> map = new HashMap<>();
+
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+
+        assertEquals("value1", map.get("key1"));
+        assertEquals("value2", map.get("key2"));
+        assertEquals("value3", map.get("key3"));
+
+        assertEquals(null, map.get("key4"));
+        assertNull(map.get("key4"));
     }
 }
