@@ -320,4 +320,19 @@ public class ExploringCollections {
         assertEquals(null, map.get("key4"));
         assertNull(map.get("key4"));
     }
+
+    @Test
+    public void removeValueFromAMap() {
+        Map<String,String> map = new HashMap<>();
+
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+
+        map.remove("key1");
+
+        assertEquals(2, map.size());
+    }
+
+    
 }
