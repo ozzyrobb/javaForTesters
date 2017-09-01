@@ -347,5 +347,37 @@ public class ExploringCollections {
         assertTrue(map.isEmpty());
     }
 
-    
+    @Test
+    public void containsKeyAndContainsValue() {
+        Map<String,String> map = new HashMap<>();
+
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+
+        assertTrue(map.containsKey("key1"));
+        assertFalse(map.containsKey("key4"));
+
+        assertTrue(map.containsValue("value1"));
+        assertFalse(map.containsValue("value4"));
+    }
+
+    @Test
+    public void putAllToAddAMapToAMap() {
+        Map<String,String> map = new HashMap<>();
+
+        Map<String,String> newMap = new HashMap<>();
+
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+
+        newMap.put("key1", "newMapValue1");
+        newMap.put("key4", "value4");
+
+        map.putAll(newMap);
+
+        assertEquals(4, map.size());
+        assertEquals("newMapValue1", map.get("key1"));
+    }
 }
