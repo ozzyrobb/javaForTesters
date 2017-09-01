@@ -412,4 +412,26 @@ public class ExploringCollections {
         assertTrue(keys.contains("key3"));
         assertFalse(keys.contains("key4"));
     }
+
+    @Test
+    public void entrySet() {
+        // An Entry is the "key, value" pair
+        // Entry exposes the getValue, getKey and setValue methods
+
+        // The following code iterates through the entries in the Map and sets all values to "Bob":
+
+        Map<String,String> map = new HashMap<>();
+
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+
+        Set<Map.Entry<String,String>> entries = map.entrySet();
+
+        for (Map.Entry<String,String> entry : entries) {
+            entry.setValue("bob");
+        }
+
+        assertEquals(3, entries.size());
+    }
 }
