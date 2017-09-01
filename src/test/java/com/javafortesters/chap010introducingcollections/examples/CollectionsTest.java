@@ -189,5 +189,19 @@ public class CollectionsTest {
 
         assertEquals(1, users.size());
     }
+
+    @Test
+    public void createAndManipulateAMapOfUserObjects() {
+        Map<String,Object> users = new HashMap<>();
+
+        User kirk = new User("Kirk", "P455w0rd");
+        User spock = new User("Spock", "Pr05p3r");
+
+        users.put("user1", kirk);
+        users.put("user1", spock);
+
+        assertEquals(1, users.size());
+        assertTrue(users.containsValue(spock));
+    }
 }
 
