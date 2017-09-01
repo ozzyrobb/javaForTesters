@@ -3,10 +3,7 @@ package com.javafortesters.chap010introducingcollections.examples;
 import com.javafortesters.domainentities.User;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -179,6 +176,18 @@ public class CollectionsTest {
         users.remove(0);
         assertEquals(1, users.size());
         assertEquals(jimmy, users.get(0));
+    }
+
+    @Test
+    public void setOfUsersExercise() {
+        Set<User> users = new HashSet<>();
+
+        User billy = new User();
+
+        users.add(billy);
+        users.add(billy);
+
+        assertEquals(1, users.size());
     }
 }
 

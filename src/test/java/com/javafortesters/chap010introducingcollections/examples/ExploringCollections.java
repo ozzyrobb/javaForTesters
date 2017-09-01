@@ -2,10 +2,7 @@ package com.javafortesters.chap010introducingcollections.examples;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -281,5 +278,18 @@ public class ExploringCollections {
         assertEquals("Wednesday", weekdays.get(2));
         assertEquals("Thursday", weekdays.get(3));
         assertEquals("Friday", weekdays.get(4));
+    }
+
+    @Test
+    public void setDoesNotAllowDuplicateElements() {
+        Set workdays = new HashSet();
+
+        workdays.add("Monday");
+        workdays.add("Monday");
+        workdays.add("Monday");
+        workdays.add("Monday");
+        workdays.add("Monday");
+
+        assertEquals(1, workdays.size());
     }
 }
