@@ -282,7 +282,7 @@ public class ExploringCollections {
 
     @Test
     public void setDoesNotAllowDuplicateElements() {
-        Set workdays = new HashSet();
+        Set<String> workdays = new HashSet<>();
 
         workdays.add("Monday");
         workdays.add("Monday");
