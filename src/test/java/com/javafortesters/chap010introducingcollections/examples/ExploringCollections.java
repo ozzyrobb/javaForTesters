@@ -334,5 +334,18 @@ public class ExploringCollections {
         assertEquals(2, map.size());
     }
 
+    @Test
+    public void clearAllValuesFromAMap() {
+        Map<String,String> map = new HashMap<>();
+
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+
+        map.clear();
+
+        assertEquals(0, map.size());
+        assertTrue(map.isEmpty());
+    }
+
     
 }
