@@ -380,4 +380,36 @@ public class ExploringCollections {
         assertEquals(4, map.size());
         assertEquals("newMapValue1", map.get("key1"));
     }
+
+    @Test
+    public void returnACollectionContainingMapValues() {
+        Map<String,String> map = new HashMap<>();
+
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+
+        Collection<String> values = map.values();
+
+        assertTrue(values.contains("value1"));
+        assertTrue(values.contains("value2"));
+        assertTrue(values.contains("value3"));
+        assertFalse(values.contains("value4"));
+    }
+
+    @Test
+    public void returnASetContainingMapKeys() {
+        Map<String,String> map = new HashMap<>();
+
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+
+        Set<String> keys = map.keySet();
+
+        assertTrue(keys.contains("key1"));
+        assertTrue(keys.contains("key2"));
+        assertTrue(keys.contains("key3"));
+        assertFalse(keys.contains("key4"));
+    }
 }
