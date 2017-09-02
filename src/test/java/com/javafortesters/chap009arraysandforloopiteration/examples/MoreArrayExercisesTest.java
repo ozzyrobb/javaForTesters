@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by robb on 19/08/2017.
  */
-public class moreArrayExercises {
+public class MoreArrayExercisesTest {
 
     @Test
     public void fillArrayWithForLoop() {

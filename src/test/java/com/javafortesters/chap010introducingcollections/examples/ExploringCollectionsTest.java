@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 /**
  * Created by robb on 26/08/2017.
  */
-public class ExploringCollections {
+public class ExploringCollectionsTest {
 
     @Test
     public void addToCollection() {
