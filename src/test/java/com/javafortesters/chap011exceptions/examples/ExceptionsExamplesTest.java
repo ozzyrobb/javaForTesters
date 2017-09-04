@@ -31,4 +31,10 @@ public class ExceptionsExamplesTest {
 
         assertEquals("You are 18 years old", yourAge);
     }
+
+    @Test(expected = NullPointerException.class)
+    public void nullPointerExceptionExpected() {
+        Integer age = null;
+        age.toString();
+    }
 }
