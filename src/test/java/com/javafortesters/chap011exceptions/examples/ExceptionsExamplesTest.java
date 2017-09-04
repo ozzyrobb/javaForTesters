@@ -37,4 +37,25 @@ public class ExceptionsExamplesTest {
         Integer age = null;
         age.toString();
     }
+
+    @Test
+    public void tryCatchFinallyANullPointerException() {
+        Integer age = null;
+        String ageAsString;
+        String yourAge = "";
+
+        try {
+            ageAsString = age.toString();
+        } catch (NullPointerException e) {
+            age = 18;
+            ageAsString = age.toString();
+        } finally {
+
+            // Code in the finally block will be executed regardless of whether or not an exception was thrown
+
+            yourAge = "You are " + age.toString() + " years old";
+        }
+
+        assertEquals("You are 18 years old", yourAge);
+    }
 }
