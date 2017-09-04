@@ -20,7 +20,7 @@ public class User {
 
     public User(String username, String password) {
         this.username = username;
-        this.password = password;
+        setPassword(password);
 
 //        we have to use the 'this' keyword because these parameters have the same name as the fields
     }
@@ -46,6 +46,9 @@ public class User {
 //    setter method for password:
 
     public void setPassword(String password) {
+        if (password.length() < 7) {
+            throw new IllegalArgumentException("Password must be greater than 6 chars");
+        }
         this.password = password;
     }
 }
