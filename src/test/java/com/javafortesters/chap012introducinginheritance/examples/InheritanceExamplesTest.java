@@ -49,11 +49,11 @@ public class InheritanceExamplesTest {
         assertEquals("ReadOnly", readOnlyUser.getPermission());
     }
 
-    @Test
-    public void aReadOnlyUserHasReadOnlyPermissions() {
-        ReadOnlyUser readOnlyUser = new ReadOnlyUser("readOnly", "p4ssw0rd");
-        assertEquals("readOnly", readOnlyUser.getUsername());
-        assertEquals("p4ssw0rd", readOnlyUser.getPassword());
-        assertEquals("ReadOnly", readOnlyUser.getPermission());
-    }
+//    @Test
+//    public void aReadOnlyUserHasReadOnlyPermissions() {
+//        ReadOnlyUser readOnlyUser = new ReadOnlyUser("readOnly", "p4ssw0rd");
+//        assertEquals("readOnly", readOnlyUser.getUsername());
+//        assertEquals("p4ssw0rd", readOnlyUser.getPassword());
+//        assertEquals("ReadOnly", readOnlyUser.getPermission());
+//    }
 }
