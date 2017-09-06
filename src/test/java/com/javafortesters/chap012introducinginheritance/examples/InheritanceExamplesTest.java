@@ -1,6 +1,7 @@
 package com.javafortesters.chap012introducinginheritance.examples;
 
 import com.javafortesters.domainentities.AdminUser;
+import com.javafortesters.domainentities.ReadOnlyUser;
 import com.javafortesters.domainentities.User;
 import org.junit.Test;
 
@@ -38,5 +39,21 @@ public class InheritanceExamplesTest {
         assertEquals("admin", adminUser.getUsername());
         assertEquals("Passw0rd", adminUser.getPassword());
         assertEquals("Elevated", adminUser.getPermission());
+    }
+
+    @Test
+    public void aReadOnlyUserDefaultContstructor() {
+        ReadOnlyUser readOnlyUser = new ReadOnlyUser();
+        assertEquals("username", readOnlyUser.getUsername());
+        assertEquals("password", readOnlyUser.getPassword());
+        assertEquals("ReadOnly", readOnlyUser.getPermission());
+    }
+
+    @Test
+    public void aReadOnlyUserHasReadOnlyPermissions() {
+        ReadOnlyUser readOnlyUser = new ReadOnlyUser("readOnly", "p4ssw0rd");
+        assertEquals("readOnly", readOnlyUser.getUsername());
+        assertEquals("p4ssw0rd", readOnlyUser.getPassword());
+        assertEquals("ReadOnly", readOnlyUser.getPermission());
     }
 }
