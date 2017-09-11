@@ -44,4 +44,9 @@ public class JunitExploredTest {
     public void runOncePerTestAfterTest() {
         System.out.println("@After run once after each test");
     }
+
+    @Ignore("Because it is not finished yet")
+    @Test
+    public void thisTestIsIgnored() {
+    }
 }
