@@ -5,6 +5,9 @@ import com.javafortesters.domainentities.exceptions.User;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 /**
  * Created by robb on 11/09/2017.
  */
@@ -48,5 +51,10 @@ public class JunitExploredTest {
     @Ignore("Because it is not finished yet")
     @Test
     public void thisTestIsIgnored() {
+    }
+
+    @Test
+    public void useAssertThatWithHamcrestMatchers() {
+        assertThat("3 + 3 = 6",3 + 3, is(7));
     }
 }
