@@ -1,7 +1,9 @@
 package com.javafortesters.chap014junitexplored.exercises;
 
+import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 /**
@@ -24,5 +26,23 @@ public class JunitExploredExercisesTest {
         assertNull(bob);
         assertNotSame(rob, bob);
         assertSame(rob, job);
+    }
+
+    @Test
+    public void replicateAllTheJunitAssertsUsingAssertThat() {
+        int rob = 5;
+        int[] robArray = {0,1,2};
+        int[] robNewArray = {0,1,2};
+        String bob = null;
+        int job = 5;
+        int pob = 6;
+        assertThat(rob, is(5));
+        assertThat(rob == 5, is(true));
+        assertThat(rob == 4, is(false));
+        assertThat(robArray, equalTo(robNewArray));
+        assertThat(rob, is(not(nullValue())));
+        assertThat(bob, is(nullValue()));
+        assertThat(rob, is(not(pob)));
+        assertThat(rob, is(job));
     }
 }
