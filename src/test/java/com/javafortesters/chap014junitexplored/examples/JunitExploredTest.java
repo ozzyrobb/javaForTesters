@@ -7,6 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
 
 /**
  * Created by robb on 11/09/2017.
@@ -56,5 +57,10 @@ public class JunitExploredTest {
     @Test
     public void useAssertThatWithHamcrestMatchers() {
         assertThat("3 + 3 = 6",3 + 3, is(7));
+    }
+
+    @Test
+    public void testAlwaysFails() {
+        fail("fail always fails");
     }
 }
