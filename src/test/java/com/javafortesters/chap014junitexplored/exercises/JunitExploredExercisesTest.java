@@ -45,4 +45,15 @@ public class JunitExploredExercisesTest {
         assertThat(rob, is(not(pob)));
         assertThat(rob, is(job));
     }
+
+    @Test
+    public void useAllHamcrestMatchers() {
+        assertThat(3 + 3, is(6));
+        assertThat(4 + 4, equalTo(8));
+        assertThat(5 + 5, is(not(9)));
+        assertThat("robert", containsString("rob"));
+        assertThat("robert", endsWith("rt"));
+        assertThat("robert", startsWith("r"));
+        assertThat(null, is(nullValue()));
+    }
 }
