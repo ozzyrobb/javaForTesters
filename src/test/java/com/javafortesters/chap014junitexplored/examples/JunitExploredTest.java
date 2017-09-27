@@ -56,7 +56,7 @@ public class JunitExploredTest {
 
     @Test
     public void useAssertThatWithHamcrestMatchers() {
-        assertThat("3 + 3 = 6",3 + 3, is(7));
+        assertThat("3 + 3 = 6",3 + 3, is(6));
     }
 
     @Test
