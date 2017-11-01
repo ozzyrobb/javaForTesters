@@ -2,6 +2,8 @@ package com.javafortesters.chap015stringsrevisited.examples;
 
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -43,5 +45,13 @@ public class StringsRevisitedTest {
 
         char[] cArray = {'2', '3'};
         assertThat("23".toCharArray(), is(cArray));
+    }
+
+    // When we convert between byte and String we may need to control the encoding.
+    // If we use an incorrect encoding then an UnsupportedEncodingException will be thrown:
+
+    @Test
+    public void canConvertBytesUTF8() throws UnsupportedEncodingException {
+        byte[] b8Array = "hello there".getBytes("UTF8");
     }
 }
