@@ -24,4 +24,16 @@ public class StringsRevisitedTest {
         String s1 = thisIs.concat("String1");
         assertThat(s1, is("This is String1"));
     }
+
+    @Test
+    public void convertingToAString() {
+        String intConcatConvert = "" + 1;
+        assertThat(intConcatConvert, is("1"));
+
+        String integerIntConvert = Integer.toString(2);
+        assertThat(integerIntConvert, is("2"));
+
+        String integerStringConvert = String.valueOf(3);
+        assertThat(integerStringConvert, is("3"));
+    }
 }
