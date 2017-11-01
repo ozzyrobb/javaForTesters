@@ -36,4 +36,12 @@ public class StringsRevisitedTest {
         String integerStringConvert = String.valueOf(3);
         assertThat(integerStringConvert, is("3"));
     }
+
+    @Test
+    public void convertingFromAString() {
+        assertThat(Integer.valueOf("2"), is(2));
+
+        char[] cArray = {'2', '3'};
+        assertThat("23".toCharArray(), is(cArray));
+    }
 }
