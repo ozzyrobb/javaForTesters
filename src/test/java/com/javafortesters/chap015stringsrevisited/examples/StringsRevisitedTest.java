@@ -110,4 +110,28 @@ public class StringsRevisitedTest {
 
         assertThat(hello.equalsIgnoreCase("hello"), is(true));
     }
+
+    @Test
+    public void endsWithAndStartsWith() {
+        String hello = "Hello";
+        assertThat(hello.endsWith("Hello"), is(true));
+        assertThat(hello.endsWith(""), is(true));
+        assertThat(hello.endsWith("lo"), is(true));
+
+        assertThat(hello.startsWith("Hello"), is(true));
+        assertThat(hello.startsWith(""), is(true));
+        assertThat(hello.startsWith("He"), is(true));
+
+        // Both endsWith and startsWith implement case sensitive searches:
+
+        assertThat(hello.endsWith("Lo"), is(false));
+        assertThat(hello.startsWith("he"), is(false));
+    }
+
+    @Test
+    public void isEmpty() {
+        String empty = "";
+        assertThat(empty.isEmpty(), is(true));
+        assertThat(empty.length(), is(0));
+    }
 }
