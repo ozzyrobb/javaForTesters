@@ -54,4 +54,42 @@ public class StringsRevisitedTest {
     public void canConvertBytesUTF8() throws UnsupportedEncodingException {
         byte[] b8Array = "hello there".getBytes("UTF8");
     }
+
+    @Test public void compareTo() {
+        String hello = "Hello";
+        assertThat(hello.compareTo("Hello"), is(0));
+
+        // If the argument String is smaller than the String then compareTo returns a negative number:
+
+        assertThat(hello.compareTo("hello") < 0, is(true));
+        assertThat(hello.compareTo("Helloo") < 0, is(true));
+        assertThat(hello.compareTo("Hemlo") < 0, is(true));
+
+        // If the argument String is larger than the String then compareTo returns a positive number:
+
+        assertThat(hello.compareTo("H") > 0, is(true));
+        assertThat(hello.compareTo("Helln") > 0, is(true));
+        assertThat(hello.compareTo("HeLlo") > 0, is(true));
+    }
+
+    @Test
+    public void compareToIgnoreCase() {
+        String hello = "Hello";
+        assertThat(hello.compareToIgnoreCase("hello"), is(0));
+        assertThat(hello.compareToIgnoreCase("Hello"), is(0));
+        assertThat(hello.compareToIgnoreCase("heLlo"), is(0));
+    }
+
+    @Test
+    public void contains() {
+        String hello = "Hello";
+        assertThat(hello.contains("He"), is(true));
+        assertThat(hello.contains("Hello"), is(true));
+
+        // Case is important when using contains:
+
+        assertThat(hello.contains("LL"), is(false));
+
+        assertThat(hello.contains("z"), is(false));
+    }
 }
