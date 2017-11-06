@@ -29,4 +29,10 @@ public class StringsRevisitedExercisesTest {
         StringBuilder sBuilder = new StringBuilder("ben");
         assertThat(new String(sBuilder), is("ben"));
     }
+
+    @Test
+    public void regionMatchesExercise() {
+        String hello = "Hello fella";
+        assertThat(hello.regionMatches(9, "young lady", 6, 2), is(true));
+    }
 }
