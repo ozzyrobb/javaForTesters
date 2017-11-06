@@ -92,4 +92,22 @@ public class StringsRevisitedTest {
 
         assertThat(hello.contains("z"), is(false));
     }
+
+    @Test
+    public void contentEquals() {
+        String hello = "Hello";
+
+        // The contentEqual method will work with any object that implements the charSequence interface, or against a StringBuffer (e.g. a StringBuilder)
+
+        assertThat(hello.contentEquals("Hello"), is(true));
+        assertThat(hello.contentEquals("hello"), is(false));
+
+        // The equals method enforces the additional rule that the parameter must be a String, as well as having equal content:
+
+        assertThat(hello.equals("Hello"), is(true));
+
+        // The equalsIgnoreCase method works the same as equals but ignores the case in the comparison:
+
+        assertThat(hello.equalsIgnoreCase("hello"), is(true));
+    }
 }
