@@ -134,4 +134,32 @@ public class StringsRevisitedTest {
         assertThat(empty.isEmpty(), is(true));
         assertThat(empty.length(), is(0));
     }
+
+    @Test
+    public void regionMatchesCaseInsensitive() {
+        String hello = "Hello fella";
+        assertThat(hello.regionMatches(true, 6, "fez", 0, 2), is(true));
+
+        /* In the above I am specifying:
+        - perform a case insensitive comparison
+        - the region of the hello String to search starting at position 6, until the end of the String
+        - the substring is "fez", and
+          - I want the region of this String to start at position 0, and
+          - only be 2 characters long
+         */
+    }
+
+    @Test
+    public void regionMatchesCaseSensitive() {
+        String hello = "Hello fella";
+        assertThat(hello.regionMatches(4, "o F", 0, 3), is(false));
+
+        /* In the above I am specifying:
+        - perform a case sensitive comparison
+        - the region of the hello String to search starting at position 4, until the end of the String
+        - the substring is "o F", and
+          - I want the region of this String to start at position 0, and
+          - to be 3 characters long (the full length of the substring)
+         */
+    }
 }
