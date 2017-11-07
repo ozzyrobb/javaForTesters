@@ -162,4 +162,20 @@ public class StringsRevisitedTest {
           - to be 3 characters long (the full length of the substring)
          */
     }
+
+    @Test
+    public void indexOf() {
+        String hello = "Hello fella";
+        assertThat(hello.indexOf("l"), is(2));
+        assertThat(hello.indexOf("l", 3), is(3));
+        assertThat(hello.indexOf("l", 4), is(8));
+    }
+
+    @Test
+    public void lastIndexOf() {
+        String hello = "Hello fella";
+        assertThat(hello.lastIndexOf("l"), is(9));
+        assertThat(hello.lastIndexOf("l", 8), is(8));
+        assertThat(hello.lastIndexOf("l", 7), is(3));
+    }
 }
