@@ -1,8 +1,13 @@
 package com.javafortesters.chap015stringsrevisited.exercises;
 
+import com.javafortesters.exercisemethods.StringsRevisited;
 import org.junit.Test;
 
+import java.util.List;
+
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class StringsRevisitedExercisesTest {
@@ -34,5 +39,14 @@ public class StringsRevisitedExercisesTest {
     public void regionMatchesExercise() {
         String hello = "Hello fella";
         assertThat(hello.regionMatches(9, "young lady", 6, 2), is(true));
+    }
+
+    @Test
+    public void findAllOccurrencesOfSubstring() {
+        String hello = "Hello fella";
+        String substring = "l";
+
+//        assertThat(StringsRevisited.findAllOccurrences(hello, substring).size(), is(4));
+        assertThat(StringsRevisited.findAllOccurrences(hello, substring), contains(2, 3, 8, 9));
     }
 }
