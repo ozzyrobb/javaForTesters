@@ -169,6 +169,8 @@ public class StringsRevisitedTest {
         assertThat(hello.indexOf("l"), is(2));
         assertThat(hello.indexOf("l", 3), is(3));
         assertThat(hello.indexOf("l", 4), is(8));
+
+        assertThat(hello.indexOf("z"), is(-1));
     }
 
     @Test
@@ -177,5 +179,7 @@ public class StringsRevisitedTest {
         assertThat(hello.lastIndexOf("l"), is(9));
         assertThat(hello.lastIndexOf("l", 8), is(8));
         assertThat(hello.lastIndexOf("l", 7), is(3));
+
+        assertThat(hello.lastIndexOf("z"), is(-1));
     }
 }
