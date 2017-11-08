@@ -3,11 +3,8 @@ package com.javafortesters.chap015stringsrevisited.exercises;
 import com.javafortesters.exercisemethods.StringsRevisited;
 import org.junit.Test;
 
-import java.util.List;
-
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class StringsRevisitedExercisesTest {
@@ -46,7 +43,16 @@ public class StringsRevisitedExercisesTest {
         String hello = "Hello fella";
         String substring = "l";
 
-//        assertThat(StringsRevisited.findAllOccurrences(hello, substring).size(), is(4));
+        assertThat(StringsRevisited.findAllOccurrences(hello, substring).size(), is(4));
         assertThat(StringsRevisited.findAllOccurrences(hello, substring), contains(2, 3, 8, 9));
+    }
+
+    @Test
+    public void findAllOccurrencesOfSubstringReversed() {
+        String hello = "Hello fella";
+        String substring = "l";
+
+        assertThat(StringsRevisited.findAllOccurrencesReversed(hello, substring).size(), is(4));
+        assertThat(StringsRevisited.findAllOccurrencesReversed(hello, substring), contains(9, 8, 3, 2));
     }
 }
