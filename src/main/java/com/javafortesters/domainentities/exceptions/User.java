@@ -8,7 +8,7 @@ public class User {
     private String password;
 
     public User(){
-        this("username", "password", false);
+        this("username", "Passw0rd", false);
     }
 
     private User(String username, String password, boolean b) {
@@ -28,8 +28,17 @@ public class User {
     }
 
     public void setPassword(String password) throws InvalidPassword {
+
         if(password.length()<7){
             throw new InvalidPassword("Password must be > 6 chars");
+        }
+
+        if (!password.matches(".*[0-9]+.*")){
+            throw new InvalidPassword("Password must have a digit");
+        }
+
+        if (!password.matches(".*[A-Z]+.*")){
+            throw new InvalidPassword("Password  must have an uppercase letter");
         }
 
         this.password = password;
