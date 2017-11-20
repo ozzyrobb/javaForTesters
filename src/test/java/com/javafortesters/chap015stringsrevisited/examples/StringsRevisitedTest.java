@@ -182,4 +182,23 @@ public class StringsRevisitedTest {
 
         assertThat(hello.lastIndexOf("z"), is(-1));
     }
+
+    @Test
+    public void stringMustIncludeADigit() {
+        String mustIncludeADigit = ".*[0123456789]+.*";
+
+        assertThat("12345678".matches(mustIncludeADigit), is(true));
+        assertThat("1nvalid".matches(mustIncludeADigit), is(true));
+
+        assertThat("invalid".matches(mustIncludeADigit), is(false));
+        assertThat("Invalid".matches(mustIncludeADigit), is(false));
+    }
+
+    @Test
+    public void stringMustIncludeUppercase() {
+        String mustIncludeUppercase = ".*[A-Z]+.*";
+
+        assertThat("Valid".matches(mustIncludeUppercase), is(true));
+        assertThat("val1D".matches(mustIncludeUppercase), is(true));
+    }
 }
