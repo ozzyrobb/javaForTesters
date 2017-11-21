@@ -216,4 +216,23 @@ public class StringsRevisitedTest {
         assertThat("1,2,3".replaceFirst("[0-9]", "digit"), is("digit,2,3"));
         assertThat("1,2,3".replaceAll("[0-9]", "digit"), is("digit,digit,digit"));
     }
+
+    @Test
+    public void uppercaseAndLowercase() {
+        String text = "In the lower 3rd";
+
+        assertThat(text.toUpperCase(), is("IN THE LOWER 3RD"));
+        assertThat(text.toLowerCase(), is("in the lower 3rd"));
+    }
+
+    @Test
+    public void removingWhitespace() {
+        String padded = "     trim me     ";
+        assertThat(padded.length(), is(17));
+
+        String trimmed = padded.trim();
+
+        assertThat(trimmed.length(), is(7));
+        assertThat(trimmed, is("trim me"));
+    }
 }
