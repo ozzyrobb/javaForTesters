@@ -201,4 +201,19 @@ public class StringsRevisitedTest {
         assertThat("Valid".matches(mustIncludeUppercase), is(true));
         assertThat("val1D".matches(mustIncludeUppercase), is(true));
     }
+
+    @Test
+    public void replacingStrings() {
+        String hello = "Hello fella fella fella";
+
+        assertThat(hello.replace("fella", "World"), is("Hello World World World"));
+        assertThat(hello.replaceFirst("fella", "World"), is("Hello World fella fella"));
+        assertThat(hello.replaceAll("fella", "World"), is("Hello World World World"));
+    }
+
+    @Test
+    public void replacingStringsWithRegex() {
+        assertThat("1,2,3".replaceFirst("[0-9]", "digit"), is("digit,2,3"));
+        assertThat("1,2,3".replaceAll("[0-9]", "digit"), is("digit,digit,digit"));
+    }
 }
