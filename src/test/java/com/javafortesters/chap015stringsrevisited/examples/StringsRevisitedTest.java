@@ -2,7 +2,7 @@ package com.javafortesters.chap015stringsrevisited.examples;
 
 import org.junit.Test;
 
-import java.io.UnsupportedEncodingException;
+    import java.io.UnsupportedEncodingException;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -234,5 +234,40 @@ public class StringsRevisitedTest {
 
         assertThat(trimmed.length(), is(7));
         assertThat(trimmed, is("trim me"));
+    }
+
+    @Test
+    public void substrings() {
+        String digits = "0123456789";
+
+        assertThat(digits.substring(5), is("56789"));
+        assertThat(digits.substring(5, 6), is("5"));
+    }
+
+    @Test
+    public void format() {
+
+        // We can use String.format and a format string instead of concatenation
+
+        int value  = 4;
+        String template = "The value %d was used";
+        String formatted = String.format(template,value);
+        assertThat(formatted, is("The value 4 was used"));
+
+        // A 'format' string is a String with embedded conversion placeholders for the arguments supplied to String.format
+
+        // %d means convert the argument to a decimal integer
+        // %s means convert the argument to a String
+
+        String use = "%s %s towards %d large %s";
+        assertThat(String.format(use, "Bob", "ran", 6, "onions"), is("Bob ran towards 6 large onions"));
+
+        // The arguments are used in order to fill the placeholders in the format string
+
+        // The format string can specify exactly which argument it wants to use in each place holder by using %<index>$
+        // e.g. %2$ would mean the 2nd argument
+
+        String txt = "%2$s %4$s towards %3$d large %1$s";
+        assertThat(String.format(txt, "Bob", "ran", 6, "onions"), is("ran onions towards 6 large Bob"));
     }
 }
