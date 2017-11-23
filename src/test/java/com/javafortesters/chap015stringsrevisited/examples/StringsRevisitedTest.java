@@ -270,4 +270,14 @@ public class StringsRevisitedTest {
         String txt = "%2$s %4$s towards %3$d large %1$s";
         assertThat(String.format(txt, "Bob", "ran", 6, "onions"), is("ran onions towards 6 large Bob"));
     }
+
+    @Test
+    public void basicParsingWithSplit() {
+        String csv = "1,2,3,4,5,6,7,8,9,10";
+        String[] results = csv.split(",");
+
+        assertThat(results.length, is(10));
+        assertThat(results[0], is("1"));
+        assertThat(results[9], is("10"));
+    }
 }
