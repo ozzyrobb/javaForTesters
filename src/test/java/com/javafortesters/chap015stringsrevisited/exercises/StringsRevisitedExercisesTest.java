@@ -55,4 +55,13 @@ public class StringsRevisitedExercisesTest {
         assertThat(StringsRevisited.findAllOccurrencesReversed(hello, substring).size(), is(4));
         assertThat(StringsRevisited.findAllOccurrencesReversed(hello, substring), contains(9, 8, 3, 2));
     }
+
+    @Test
+    public void stringBuilderResizes() {
+        StringBuilder builder = new StringBuilder();
+        assertThat(builder.capacity(), is(16));
+
+        builder.append("Hello World! This is a string which should increase the capacity automatically.");
+        assertThat(builder.capacity(), is(79));
+    }
 }
