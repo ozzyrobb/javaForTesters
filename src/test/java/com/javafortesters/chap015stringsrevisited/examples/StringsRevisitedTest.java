@@ -280,4 +280,33 @@ public class StringsRevisitedTest {
         assertThat(results[0], is("1"));
         assertThat(results[9], is("10"));
     }
+
+    @Test
+    public void stringBuilder() {
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("Hello There").replace(7,11,"World").delete(5,7);
+        assertThat(builder.toString(), is("HelloWorld"));
+    }
+
+    @Test
+    public void stringBuilderCapacityManagement() {
+        StringBuilder builder = new StringBuilder();
+        assertThat(builder.capacity(), is(16));
+
+        StringBuilder sblen = new StringBuilder(512);
+        assertThat(sblen.capacity(), is(512));
+        assertThat(sblen.toString().length(), is(0));
+
+        // You can size the StringBuilder after construction using the ensureCapacity method
+
+        StringBuilder sb  = new StringBuilder();
+        sb.ensureCapacity(600);
+        assertThat(sb.capacity(), is(600));
+
+        // If you have amended the capacity or deleted a lot of the string, you can set the capacity to the minimum necessary to hold the string using trimeToSize
+
+        sb.trimToSize();
+        assertThat(sb.capacity(), is(0));
+    }
 }
