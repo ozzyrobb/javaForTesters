@@ -309,4 +309,17 @@ public class StringsRevisitedTest {
         sb.trimToSize();
         assertThat(sb.capacity(), is(0));
     }
+
+    @Test
+    public void appendingToTheStringBuilder() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("> ");
+        builder.append(1);
+        builder.append(" + ");
+        builder.append(2);
+        char[] ca = {' ', '=', ' ', '3'};
+        builder.append(ca);
+
+        assertThat(builder.toString(), is("> 1 + 2 = 3"));
+    }
 }
